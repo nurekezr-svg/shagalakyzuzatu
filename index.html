@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ұядан ұшқан күн — Шағала</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #fffdf9;
+    color: #4b3b2b;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+section {
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.88)),
+        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn 2s ease;
+}
+
+.ornament {
+    color: #c7a45b;
+    font-size: 32px;
+    letter-spacing: 8px;
+    margin: 20px;
+}
+
+h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 10vw, 100px);
+    font-weight: 500;
+    color: #b18b42;
+    margin: 20px 0;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 45px;
+    color: #b18b42;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.date {
+    font-size: 22px;
+    letter-spacing: 5px;
+    margin-top: 25px;
+}
+
+.gold-line {
+    width: 120px;
+    height: 2px;
+    background: #c7a45b;
+    margin: 30px auto;
+}
+
+.text {
+    max-width: 750px;
+    margin: auto;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    line-height: 1.7;
+}
+
+.info {
+    background: #fffaf0;
+}
+
+.info-box {
+    max-width: 700px;
+    margin: auto;
+    display: grid;
+    gap: 20px;
+}
+
+.info-item {
+    padding: 22px;
+    border: 1px solid #ddc58d;
+    background: white;
+    font-size: 18px;
+}
+
+.info-item strong {
+    display: block;
+    color: #b18b42;
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.time-box {
+    width: 110px;
+    padding: 20px 10px;
+    background: white;
+    border: 1px solid #d5b96d;
+}
+
+.time-box span {
+    display: block;
+    font-size: 38px;
+    color: #b18b42;
+    font-weight: 500;
+}
+
+.time-box small {
+    color: #806c4c;
+}
+
+.rsvp {
+    background: #fffdf9;
+}
+
+form {
+    max-width: 550px;
+    margin: 30px auto;
+    background: white;
+    padding: 35px;
+    border: 1px solid #dfc88e;
+    box-shadow: 0 10px 40px rgba(150, 120, 50, 0.1);
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 20px;
+    border: 1px solid #d9c18a;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.choice {
+    display: block;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #e0cb98;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.choice:hover {
+    background: #fff8e8;
+}
+
+.choice input {
+    width: auto;
+    margin-right: 10px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    border: none;
+    background: #b18b42;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #8f6e2f;
+}
+
+.music-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+    border-radius: 50px;
+    padding: 12px 18px;
+    font-size: 14px;
+}
+
+.success {
+    display: none;
+    color: #9b7834;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+footer {
+    padding: 40px 20px;
+    background: #fff8e9;
+    color: #8e754a;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 60px 15px;
+    }
+
+    h2 {
+        font-size: 36px;
+    }
+
+    .text {
+        font-size: 22px;
+    }
+
+    .time-box {
+        width: 75px;
+    }
+
+    .time-box span {
+        font-size: 28px;
+    }
+
+    form {
+        padding: 25px 18px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="ornament">
+            ❖ ❖ ❖
+        </div>
+
+        <h1>Ұядан ұшқан күн</h1>
+
+        <div class="gold-line"></div>
+
+        <h2>Шағала</h2>
+
+        <div class="date">
+            21.08.2026
+        </div>
+
+        <div class="ornament">
+            ❖
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ПРИГЛАШЕНИЕ -->
+
+<section>
+
+    <div class="ornament">❧ ❧ ❧</div>
+
+    <h2>Құрметті ағайын-туыс, жақындарымыз!</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="text">
+
+        <p>
+            Ата-ананың ақ батасын алып, туған ұясынан қанат қаққан
+            аяулы қызымыз Шағала өмірінің жаңа белесіне қадам басқалы отыр.
+        </p>
+
+        <p>
+            Осы бір жүрекке жылы, көңілге қуаныш сыйлаған ерекше күнде
+            сіздерді ақ тілектеріңізбен бірге болуға шақырамыз.
+        </p>
+
+        <p>
+            Қуанышымызға ортақ болып, ақ тілектеріңізбен бірге болыңыздар!
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ИНФОРМАЦИЯ -->
+
+<section class="info">
+
+    <h2>Тойымыздың мекенжайы</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="info-box">
+
+        <div class="info-item">
+            <strong>📅 Күні</strong>
+            21 тамыз 2026 жыл
+        </div>
+
+        <div class="info-item">
+            <strong>🕕 Уақыты</strong>
+            Сағат 18:00
+        </div>
+
+        <div class="info-item">
+            <strong>📍 Мекенжайы</strong>
+            «Арман» мейрамханасы<br>
+            жм Көктем, 84а
+        </div>
+
+        <div class="info-item">
+            <strong>Той иелері</strong>
+            Орынбай – Таисия
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ОБРАТНЫЙ ОТСЧЕТ -->
+
+<section>
+
+    <h2>Тойға дейін</h2>
+
+    <div class="gold-line"></div>
+
+    <div class="countdown">
+
+        <div class="time-box">
+            <span id="days">0</span>
+            <small>Күн</small>
+        </div>
+
+        <div class="time-box">
+            <span id="hours">0</span>
+            <small>Сағат</small>
+        </div>
+
+        <div class="time-box">
+            <span id="minutes">0</span>
+            <small>Минут</small>
+        </div>
+
+        <div class="time-box">
+            <span id="seconds">0</span>
+            <small>Секунд</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RSVP -->
+
+<section class="rsvp">
+
+    <h2>Қатысуыңызды растаңыз</h2>
+
+    <div class="gold-line"></div>
+
+    <p class="text">
+        Тойға келесіз бе?
+    </p>
+
+    <!--
+    ВАЖНО:
+    Этот адрес FormSubmit отправляет ответы на:
+    nureke.zr@gmail.com
+    -->
+
+    <form
+        action="https://formsubmit.co/nureke.zr@gmail.com"
+        method="POST"
+        onsubmit="showSuccess()"
+    >
+
+        <input
+            type="text"
+            name="Аты-жөні"
+            placeholder="Аты-жөніңізді жазыңыз"
+            required
+        >
+
+        <label class="choice">
+            <input
+                type="radio"
+                name="Тойға қатысуы"
+                value="Иә, міндетті түрде келемін"
+                required
+            >
+            ☑ Иә, міндетті түрде келемін
+        </label>
+
+        <label class="choice">
+            <input
+                type="radio"
+                name="Тойға қатысуы"
+                value="Өкінішке қарай, келе алмаймын"
+            >
+            ☐ Өкінішке қарай, келе алмаймын
+        </label>
+
+        <input
+            type="hidden"
+            name="_subject"
+            value="Жаңа жауап: Ұядан ұшқан күн — Шағала"
+        >
+
+        <input
+            type="hidden"
+            name="_captcha"
+            value="false"
+        >
+
+        <input
+            type="hidden"
+            name="_template"
+            value="table"
+        >
+
+        <button type="submit">
+            Жауапты жіберу
+        </button>
+
+        <div id="success" class="success">
+            Жауабыңыз қабылданды! Рақмет 🤍
+        </div>
+
+    </form>
+
+</section>
+
+
+<!-- МУЗЫКА -->
+
+<audio id="music" loop>
+
+    <!--
+    СЮДА НУЖНО ПОЛОЖИТЬ ФАЙЛ С МУЗЫКОЙ
+    И НАЗВАТЬ ЕГО music.mp3
+
+    Например:
+    index.html
+    music.mp3
+    -->
+
+    <source src="music.mp3" type="audio/mpeg">
+
+</audio>
+
+<button class="music-button" onclick="toggleMusic()">
+    ♫ Музыканы қосу
+</button>
+
+
+<footer>
+
+    Ұядан ұшқан күн 🤍
+
+</footer>
+
+
+<script>
+
+
+// ОБРАТНЫЙ ОТСЧЕТ
+
+const weddingDate = new Date("August 21, 2026 18:00:00").getTime();
+
+const timer = setInterval(function() {
+
+    const now = new Date().getTime();
+
+    const distance = weddingDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    const hours = Math.floor(
+        (distance % (1000 * 60 * 60 * 24))
+        / (1000 * 60 * 60)
+    );
+
+    const minutes = Math.floor(
+        (distance % (1000 * 60 * 60))
+        / (1000 * 60)
+    );
+
+    const seconds = Math.floor(
+        (distance % (1000 * 60))
+        / 1000
+    );
+
+    document.getElementById("days").innerText = days;
+
+    document.getElementById("hours").innerText = hours;
+
+    document.getElementById("minutes").innerText = minutes;
+
+    document.getElementById("seconds").innerText = seconds;
+
+    if (distance < 0) {
+
+        clearInterval(timer);
+
+        document.getElementById("days").innerText = "0";
+
+        document.getElementById("hours").innerText = "0";
+
+        document.getElementById("minutes").innerText = "0";
+
+        document.getElementById("seconds").innerText = "0";
+
+    }
+
+}, 1000);
+
+
+// МУЗЫКА
+
+const music = document.getElementById("music");
+
+const musicButton = document.querySelector(".music-button");
+
+function toggleMusic() {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicButton.innerText = "♫ Музыканы тоқтату";
+
+    } else {
+
+        music.pause();
+
+        musicButton.innerText = "♫ Музыканы қосу";
+
+    }
+
+}
+
+
+// СООБЩЕНИЕ ПОСЛЕ ОТПРАВКИ
+
+function showSuccess() {
+
+    document.getElementById("success").style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>
